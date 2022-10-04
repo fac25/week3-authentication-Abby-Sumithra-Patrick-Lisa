@@ -1,0 +1,32 @@
+{
+  "name": "week3-authentication-abby-sumithra-patrick-lisa",
+  "version": "1.0.0",
+  "description": "Writing thorough documentation, because the UX Lead asked for it. ![](https://gifimage.net/wp-content/uploads/2017/10/cat-typing-gif-7.gif)",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+    
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fac25/week3-authentication-Abby-Sumithra-Patrick-Lisa.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fac25/week3-authentication-Abby-Sumithra-Patrick-Lisa/issues"
+  },
+  "homepage": "https://github.com/fac25/week3-authentication-Abby-Sumithra-Patrick-Lisa#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "better-sqlite3": "^7.6.2",
+    "cookie-parser": "^1.4.6",
+    "eslint": "^8.24.0",
+    "express": "^4.18.1",
+    "nodemon": "^2.0.20",
+    "prettier": "^2.7.1"
+  }
+}
