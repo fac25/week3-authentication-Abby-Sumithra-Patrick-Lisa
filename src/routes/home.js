@@ -5,7 +5,6 @@ const { getSession } = require('../model/sessions')
 function get(req, res) {
   const sid = req.signedCookies?.sid
   const session = getSession(sid)
-  console.log(session)
 
   const sharedBooks = getSharedBooks()
   res.send(Home({ session, sharedBooks }));
