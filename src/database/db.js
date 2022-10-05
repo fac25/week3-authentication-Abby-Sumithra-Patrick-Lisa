@@ -6,7 +6,6 @@ const db = new Database(process.env.DB_FILE);
 
 const schemaPath = join("src", "database", "schema.sql");
 const schema = readFileSync(schemaPath, "utf-8");
-console.log(schema)
 db.exec(schema);
 
 module.exports = db;
