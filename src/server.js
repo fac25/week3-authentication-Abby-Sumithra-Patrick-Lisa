@@ -13,12 +13,12 @@ const cookies = cookieParser(process.env.COOKIE_SECRET);
 
 server.use(cookies);
 server.get("/", home.get);
-server.get("/sign-up", signup.get);
-server.post("/sign-up", body, signup.post);
-server.get("/log-in", login.get);
-server.post("/log-in", body, login.post);
-server.post("/log-out", logout.post);
-server.get("/user-page/:user_id", userpage.get);
-server.post("/user-page/:user_id", body, userpage.post);
+// server.get("/sign-up", signup.get);
+// server.post("/sign-up", body, signup.post);
+// server.get("/log-in", login.get);
+// server.post("/log-in", body, login.post);
+// server.post("/log-out", logout.post);
+// server.get("/user-page/:user_id", userpage.get);
+// server.post("/user-page/:user_id", body, userpage.post);
 
 module.exports = server;
