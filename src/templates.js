@@ -20,6 +20,14 @@ function Layout({ title, content }) {
 
 
 function Home({ title, session, sharedBooks }) {
+  const bookList = sharedBooks.map(book => {
+    return `<li>
+      <p>${book.name}</p>
+      <p>${book.author}</p>
+      <p>${book.rating}</p> 
+    </li>`
+  })
+
   const content = /*html*/` 
   <div>
     <h1>${title}</h1>
@@ -28,7 +36,9 @@ function Home({ title, session, sharedBooks }) {
     </nav>
   </div>
   <div>
-
+  <ul>
+    ${bookList.join("")}
+  </ul>
 
   </div>`
 
