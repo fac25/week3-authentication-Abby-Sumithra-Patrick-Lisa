@@ -15,7 +15,7 @@ function get(req, res) {
           <label for="password">password</label>
           <input type="password" id="password" name="password" required>
         </div>
-        <button class="Button">Sign up</button>
+        <button>Sign up</button>
       </form>
     </div>
   `;
