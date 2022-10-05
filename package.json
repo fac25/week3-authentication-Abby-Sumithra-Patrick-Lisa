@@ -7,8 +7,8 @@
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon src/index.js"
+    "dev": "nodemon src/index.js",
+    "seed": "DB_FILE=db.sqlite node src/database/seed.js"
   },
   "repository": {
     "type": "git",
