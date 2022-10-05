@@ -58,6 +58,8 @@ function getUserPage(books) {
   <input id="author" name="author" required>
   <label for="rating">Rating</label>
   <input id="rating" type="range" name="rating" required>
+  <label for="sharing">Recommend to others</label>
+  <input id="sharing" type="checkbox" name="sharing" required>
   <button>Submit</button>
   </form>
   `

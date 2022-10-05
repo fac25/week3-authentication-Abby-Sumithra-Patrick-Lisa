@@ -22,6 +22,7 @@
   "homepage": "https://github.com/fac25/week3-authentication-Abby-Sumithra-Patrick-Lisa#readme",
   "dependencies": {
     "bcrypt": "^5.0.1",
+    "bcryptjs": "^2.4.3",
     "better-sqlite3": "^7.6.2",
     "cookie-parser": "^1.4.6",
     "eslint": "^8.24.0",
