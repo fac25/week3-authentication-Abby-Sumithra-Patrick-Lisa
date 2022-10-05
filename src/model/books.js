@@ -17,5 +17,14 @@ function getSharedBooks() {
     return shared_books.all()
 }
 
-module.exports = { getSharedBooks, listBooks }
+const add_books = db.prepare(
+    /* sql */ `INSERT INTO books (name, author, rating, sharing, user_id) 
+    VALUES ($book, $author, $rating, $sharing, $user_id )`
+);
+
+function addBooks(book, author, rating, sharing, user_id){
+    return add_books.run({book, author, rating, sharing, user_id});
+}
+
+module.exports = { getSharedBooks, listBooks, addBooks }
 

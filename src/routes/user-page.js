@@ -1,4 +1,4 @@
-const { listBooks } = require("../model/books.js");
+const { listBooks, addBooks } = require("../model/books.js");
 const { getUserPage } = require("../templates.js");
 const { getSession } = require("../model/session.js");
 
@@ -14,8 +14,18 @@ function get(req, res) {
         user_id = Number(req.params.user_id);
     }
     const books = listBooks(user_id);
-    const body = getUserPage(books);
+    const body = getUserPage({session, books});
     res.send(body);
 }
 
-module.exports = { get };
+function post(req, res) {
+const user_id = 1;
+    let { book, author, rating, sharing } = req.body;
+    console.log(sharing);
+    sharing = (sharing === "on") ? 1 : 0;
+     console.log(book, author, rating, sharing);
+    addBooks(book, author, rating, sharing, user_id)
+    res.redirect(`/user-page/${user_id}`);
+}
+
+module.exports = { get, post };

@@ -48,19 +48,20 @@ function Row(entry) {
   `;
 }
 
-
-function getUserPage(books) {
+function getUserPage({session, books}) {
   let content = /*html*/ `
-  <form method="POST"> 
+  ${displayLogout(session)}
+<br/>
+  <form method="POST" action="user-page/1"> 
   <label for="book">Book name</label>
   <input id="book" name="book" required>
   <label for="author">Author</label>
   <input id="author" name="author" required>
   <label for="rating">Rating</label>
-  <input id="rating" type="range" name="rating" required>
+  <input id="rating" type="range" name="rating" min="0" max="5" required>
   <label for="sharing">Recommend to others</label>
-  <input id="sharing" type="checkbox" name="sharing" required>
-  <button>Submit</button>
+  <input id="sharing" type="checkbox" name="sharing">
+  <button action="user-page/1">Submit</button>
   </form>
   `
   if (books.length) {
@@ -72,7 +73,7 @@ function getUserPage(books) {
 
 function displayLogout(session = {}) {
   return `${session ?
-    `<form method="POST" action="/log-out"><button>Log out</button>` :
+    `<form method="POST" action="/log-out"><button>Log out</button></form>` :
     `<a href="/sign-up">Sign up</a> or <a href="/log-in">Log In</a>`}`
 }
 
