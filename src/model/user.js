@@ -9,13 +9,14 @@ function createUser(email, hash) {
     return insert_user.get({ email, hash })
 }
 
-// const select_user = db.prepare(/*sql*/
-//     `SELECT id, email, hash, create_at
-// FROM users WHERE email= $email`
-// )
+const select_user = db.prepare(/*sql*/
+`SELECT id, email, hash, created_at
+ FROM users 
+ WHERE email=$email`
+)
 
-// function getUserByEmail(email) {
-//     return select_user.get({ email })
-// }
+function getUserByEmail(email) {
+    return select_user.get({ email })
+}
 
-module.exports = { createUser }
+module.exports = { createUser, getUserByEmail }

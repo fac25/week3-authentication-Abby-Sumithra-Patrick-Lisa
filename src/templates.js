@@ -18,7 +18,6 @@ function Layout({ title, content }) {
     `;
 }
 
-
 function Table({ caption, data }) {
   const keys = Object.keys(data[0]);
   return /*html*/ `
@@ -71,7 +70,7 @@ function getUserPage({session, books}) {
 }
 
 
-function displayLogout(session = {}) {
+function displayLogout(session) {
   return `${session ?
     `<form method="POST" action="/log-out"><button>Log out</button></form>` :
     `<a href="/sign-up">Sign up</a> or <a href="/log-in">Log In</a>`}`

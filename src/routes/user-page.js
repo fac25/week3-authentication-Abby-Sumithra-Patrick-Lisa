@@ -1,6 +1,6 @@
 const { listBooks, addBooks } = require("../model/books.js");
 const { getUserPage } = require("../templates.js");
-const { getSession } = require("../model/session.js");
+const { getSession } = require("../model/sessions.js");
 
 function get(req, res) {
     const sid = req.signedCookies.sid;
