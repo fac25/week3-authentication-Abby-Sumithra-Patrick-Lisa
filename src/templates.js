@@ -29,18 +29,17 @@ function Home({ session, sharedBooks }) {
   })
 
   const content = /*html*/` 
-  <div>
-    <h1>Store and share your favorite books</h1>
-    <nav>
-      ${session ? `<form method="POST" action="/log-out"><button>Log out</button>` : `<a href="/sign-up">Sign up</a> or <a href="/log-in">Log In</a>`}
-    </nav>
-  </div>
-  <div>
-  <ul>
-    ${bookList.join("")}
-  </ul>
-
-  </div>`
+    <div>
+      <h1>Store and share your favorite books</h1>
+      <nav>
+        ${session ? `<form method="POST" action="/log-out"><button>Log out</button>` : `<a href="/sign-up">Sign up</a> or <a href="/log-in">Log In</a>`}
+      </nav>
+    </div>
+    <div>
+      <ul>
+        ${bookList.join("")}
+      </ul>
+    </div>`
 
   return Layout({ title: 'WEBSITE NAME', content })
 }
