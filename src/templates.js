@@ -19,7 +19,7 @@ function Layout({ title, content }) {
 }
 
 
-function Home({ title, session, sharedBooks }) {
+function Home({ session, sharedBooks }) {
   const bookList = sharedBooks.map(book => {
     return `<li>
       <p>${book.name}</p>
@@ -30,7 +30,7 @@ function Home({ title, session, sharedBooks }) {
 
   const content = /*html*/` 
   <div>
-    <h1>${title}</h1>
+    <h1>Store and share your favorite books</h1>
     <nav>
       ${session ? `<form method="POST" action="/log-out"><button>Log out</button>` : `<a href="/sign-up">Sign up</a> or <a href="/log-in">Log In</a>`}
     </nav>
@@ -42,7 +42,47 @@ function Home({ title, session, sharedBooks }) {
 
   </div>`
 
-  return Layout({ title, content })
+  return Layout({ title: 'WEBSITE NAME', content })
 }
 
-module.exports = { Layout, Home }
+
+function SignUp() {
+  const content = `
+  <div>
+    <h1>Sign Up</h1>
+    <form method="POST">
+      <div>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div>
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+      <button>Sign up</button>
+    </form>
+  </div>`
+  return Layout({ title: 'Sign Up', content })
+}
+
+function Login() {
+  const content = /*html*/ `
+    <div>
+      <h1>Login to your account</h1>
+      <form method="POST">
+        <div>
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div>
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" required>
+        </div>
+        <button>Log in</button>
+      </form>
+    </div>
+  `;
+  return Layout({ title: 'Log In', content })
+}
+
+module.exports = { Layout, Home, SignUp, Login }

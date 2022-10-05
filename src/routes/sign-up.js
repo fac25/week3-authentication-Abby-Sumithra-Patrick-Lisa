@@ -1,26 +1,8 @@
-const { Layout } = require("../templates.js");
+const { SignUp } = require("../templates.js");
 
 
 function get(req, res) {
-    const title = "Create an account";
-    const content = /*html*/ `
-      <div>
-      <h1>${title}</h1>
-      <form method="POST">
-        <div>
-          <label for="email">email</label>
-          <input type="email" id="email" name="email" required>
-        </div>
-        <div>
-          <label for="password">password</label>
-          <input type="password" id="password" name="password" required>
-        </div>
-        <button>Sign up</button>
-      </form>
-    </div>
-  `;
-  const body = Layout({ title, content });
-  res.send(body);
+  res.send(SignUp());
 }
 
 module.exports = { get };
