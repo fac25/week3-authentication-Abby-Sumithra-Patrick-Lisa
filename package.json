@@ -7,6 +7,7 @@
     "test": "test"
   },
   "scripts": {
+    "dev": "nodemon src/index.js",
     "seed": "DB_FILE=db.sqlite node src/database/seed.js"
   },
   "repository": {
