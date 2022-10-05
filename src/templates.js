@@ -18,7 +18,7 @@ function Layout({ title, content }) {
     `;
 }
 
-function displayLogout(session = {}) {
+function displayLogout(session) {
   return `${session ?
     `<form method="POST" action="/log-out"><button>Log out</button>` :
     `<a href="/sign-up">Sign up</a> or <a href="/log-in">Log In</a>`}`
