@@ -1,6 +1,6 @@
 
 function Layout({ title, content }) {
-    return /*html*/ `
+  return /*html*/ `
       <!doctype html>
       <html lang="en">
         <head>
@@ -16,4 +16,6 @@ function Layout({ title, content }) {
         </body>
       </html>
     `;
-  }
+}
+
+module.exports = { Layout }
