@@ -21,4 +21,8 @@ server.get("/log-in", login.get);
 // server.get("/user-page/:user_id", userpage.get);
 // server.post("/user-page/:user_id", body, userpage.post);
 
+function sanitize(str) {
+    return str.replaceAll('<', '&lt;')
+}
+
 module.exports = server;
