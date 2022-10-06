@@ -15,9 +15,11 @@ const server = express()
 
 //fix before deployment
 const cookies = cookieParser(process.env.COOKIE_SECRET || "secret")
-
-
 server.use(cookies)
+
+const staticHandler = express.static("public");
+server.use(staticHandler);
+
 server.get("/", home.get)
 
 server.get("/sign-up", signup.get)
@@ -33,5 +35,7 @@ server.post('/delete-book/:id', bodyParser, userpage.deletePost)
 function sanitize(str) {
   return str.replaceAll("<", "&lt;")
 }
+
+
 
 module.exports = server
