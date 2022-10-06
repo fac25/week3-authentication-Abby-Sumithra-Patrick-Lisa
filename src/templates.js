@@ -21,13 +21,15 @@ function Layout({ title, content }) {
 }
 
 function Table({ caption, data, res }) {
-  const keys = Object.keys(data[0]);
+  const [, name, author, rating] = Object.keys(data[0]);
   return /*html*/ `
   <div>
   <table>
   <thead>
   <tr>
-  ${keys.map((key) => `<th>${key}</th>`).join("")}
+    <td>${name}</td>
+    <td>${author}</td>
+    <td>${rating}</td>
   </tr>
   </thead>
   <tbody>
@@ -39,13 +41,13 @@ function Table({ caption, data, res }) {
   `;
 }
 
-function Row(entry) {
+function Row({id, name, author, rating}) {
   return /*html*/ `
     <tr>
-      ${Object.values(entry)
-        .map((val) => `<td>${val}</td>`)
-        .join("")}
-        <td><form method='POST' action='/delete-book/${entry.id}'><button>deleteBooks</button></form></td>
+        <td>${name}</td>
+        <td>${author}</td>
+        <td>${rating}</td>
+        <td><form method='POST' action='/delete-book/${id}'><button>deleteBooks</button></form></td>
     </tr>
   `;
 }
