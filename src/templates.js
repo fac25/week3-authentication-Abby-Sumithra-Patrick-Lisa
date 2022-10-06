@@ -54,10 +54,10 @@ function getUserPage({ session, books, error }) {
   <form method="POST" > 
   <label for="book">Book name</label>
   <input id="book" name="book" >
-  ${error ? `<h3 style="color:red">Please enter your favorite book</h3>` : ''}
+  ${error ? `<h3 style="color:red"  aria-describedby="book">Please enter your favorite book</h3>` : ''}
   <label for="author">Author</label>
   <input id="author" name="author" >
-  ${error ? `<h3 style="color:red">Please enter the name of the author</h3>` : ''}
+  ${error ? `<h3 style="color:red" aria-describedby="author">Please enter the name of the author</h3>` : ''}
   <label for="rating">Rating</label>
   <input id="rating" type="range" name="rating" min="0" max="5" required>
   <label for="sharing">Recommend to others</label>
@@ -117,12 +117,12 @@ function SignUp(error) {
       <div>
         <label for="email">Email</label>
         <input type="email" id="email" name="email" >
-        ${error ? `<h3 style="color:red">Please enter your email</h3>` : ''}
+        ${error ? `<h3 style="color:red" aria-describedby="email">Please enter your email</h3>` : ''}
       </div>
       <div>
         <label for="password">Password</label>
         <input type="password" id="password" name="password" >
-        ${error ? `<h3 style="color:red">Please enter your password</h3>` : ''}
+        ${error ? `<h3 style="color:red" aria-describedby="email">Please enter your password</h3>` : ''}
       </div>
       <button>Sign up</button>
     </form>
@@ -138,12 +138,12 @@ function Login(error) {
         <div>
           <label for="email">Email</label>
           <input type="email" id="email" name="email" >
-          ${error ? `<h3 style="color:red">Please enter your email</h3>` : ''}
+          ${error ? `<h3 style="color:red" aria-describedby="email">Please enter your email</h3>` : ''}
         </div>
         <div>
           <label for="password">Password</label>
           <input type="password" id="password" name="password">
-          ${error ? `<h3 style="color:red">Please enter your password</h3>` : ''}
+          ${error ? `<h3 style="color:red" aria-describedby="email">Please enter your password</h3>` : ''}
         </div>
         <button>Log in</button>
       </form>
