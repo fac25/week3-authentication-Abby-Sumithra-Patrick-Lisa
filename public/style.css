@@ -1,8 +1,115 @@
 :root {
-    --button-color: #E7B366;
-    --backgroundColor: #F1EFF0;
+    --button-color: #e7b366;
+    --backgroundColor: #fff;
 }
 
-body {
-    
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    box-shadow: 2px 2px 5px rgba(0,0,0,.1);
+    padding: 1rem;
+}
+
+ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 1rem;
+    list-style: none;
+    background-color: var(--backgroundColor);
+    width: 50%;
+    margin: 0 auto;
+}
+
+
+li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border:  1px solid rgba(128, 128, 128, 0.5);
+    padding: 1rem 2rem;
+    border-radius: 15px;
+}
+
+li * {
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+    width: 50%;
+    margin: 0 auto;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    font-size: 1.2rem;
+}
+
+
+button, .login, .signup {
+    padding: .8rem 1.5rem;
+    border: none;
+    background-color: var(--button-color);
+    font-weight: 500;
+    letter-spacing: 0.02rem;
+    font-size: 1.2rem;
+    color: white;
+}
+
+.register-btns {
+    margin-left: auto;
+}
+
+.signup{
+    background-color: rgb(70, 161, 235);
+}
+
+.login {
+    margin-left: 1rem;
+}
+
+.signup-form, .login-form, .books-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    grid-gap: 1rem;
+    width: 20%;
+    margin: 5rem auto;
+    padding: 5rem;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,.5)
+}
+
+
+form > button {
+    width: fit-content;
+}
+
+
+.books-form {
+    width: fit-content;
+    margin: 0;
+}
+
+.user-page {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+table {
+    margin: 5rem auto;
+    padding: 5rem;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,.5)
+}
+
+thead + tr:first-child {
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: .02rem;
 }

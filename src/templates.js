@@ -8,7 +8,7 @@ function Layout({ title, content }) {
         <head>
           <meta charset="UTF-8">
           <title>${title}</title>
-          <link rel="stylesheet" href="style.css">
+          <link rel="stylesheet" href="../style.css">
         </head>
         <body>
             <main>
@@ -20,7 +20,7 @@ function Layout({ title, content }) {
     `;
 }
 
-function Table({ caption, data, res }) {
+function Table({ data }) {
   const [, name, author, rating] = Object.keys(data[0]);
   return /*html*/ `
   <div>
@@ -58,30 +58,31 @@ function getUserPage({session, books}) {
   ${session ? `<a href='/'>Recommended Books</a>`: ''}
   ${displayLogout(session)}
   </nav>
-<br/>
-  <form method="POST" > 
-  <label for="book">Book name</label>
-  <input id="book" name="book" required>
-  <label for="author">Author</label>
-  <input id="author" name="author" required>
-  <label for="rating">Rating</label>
-  <input id="rating" type="range" name="rating" min="0" max="5" required>
-  <label for="sharing">Recommend to others</label>
-  <input id="sharing" type="checkbox" name="sharing">
-  <button >Submit</button>
-  </form>
+    <br/>
+    <div class='user-page'>
+      <form method="POST" class='books-form' > 
+      <label for="book">Book name</label>
+      <input id="book" name="book" required>
+      <label for="author">Author</label>
+      <input id="author" name="author" required>
+      <label for="rating">Rating</label>
+      <input id="rating" type="range" name="rating" min="0" max="5" required>
+      <label for="sharing">Recommend to others</label>
+      <input id="sharing" type="checkbox" name="sharing">
+      <button >Submit</button>
+      </form>
+      ${books && Table({caption:"User books", data:books})}
+    </div>
   `
-  if (books.length) {
- content += Table({caption:"User books", data:books})
-  }
-  return content
+  
+  return Layout({title: 'My books', content})
 }
 
 
 function displayLogout(session) {
   return `${session ?
     `<form method="POST" action="/log-out"><button>Log out</button></form>` :
-    `<a href="/sign-up">Sign up</a> or <a href="/log-in">Log In</a>`}`
+    `<div class='register-btns'><a class='signup' href="/sign-up">Sign up</a>  <a class='login' href="/log-in">Log In</a></div>`}`
 }
 
 
@@ -109,7 +110,7 @@ function bookList(arr) {
   <li>
     <p>${book.name}</p>
     <p>${book.author}</p>
-    <p>${book.rating}</p> 
+    <p>Rating: ${book.rating}</p> 
   </li>`
   ).join("")
 }
@@ -119,7 +120,7 @@ function SignUp() {
   const content = `
   <div>
     <h1>Sign Up</h1>
-    <form method="POST" action='/sign-up'>
+    <form method="POST" class='signup-form' action='/sign-up'>
       <div>
         <label for="email">Email</label>
         <input type="email" id="email" name="email" required>
@@ -138,7 +139,7 @@ function Login() {
   const content = /*html*/ `
     <div>
       <h1>Login to your account</h1>
-      <form method="POST" action='log-in'>
+      <form method="POST" class='login-form' action='log-in'>
         <div>
           <label for="email">Email</label>
           <input type="email" id="email" name="email" required>
