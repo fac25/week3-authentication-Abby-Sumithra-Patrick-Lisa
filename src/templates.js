@@ -1,3 +1,5 @@
+const { deleteBooks } = require("./model/books.js");
+
 
 function Layout({ title, content }) {
   return /*html*/ `
@@ -18,7 +20,7 @@ function Layout({ title, content }) {
     `;
 }
 
-function Table({ caption, data }) {
+function Table({ caption, data, res }) {
   const keys = Object.keys(data[0]);
   return /*html*/ `
   <div>
@@ -43,6 +45,7 @@ function Row(entry) {
       ${Object.values(entry)
         .map((val) => `<td>${val}</td>`)
         .join("")}
+        <td><form method='POST' action='/delete-book/${entry.id}'><button>deleteBooks</button></form></td>
     </tr>
   `;
 }
