@@ -8,7 +8,7 @@ function Layout({ title, content }) {
         <head>
           <meta charset="UTF-8">
           <title>${title}</title>
-          <link rel="stylesheet" href="../public/style.css">
+          <link rel="stylesheet" href="style.css">
         </head>
         <body>
             <main>
@@ -54,7 +54,10 @@ function Row({id, name, author, rating}) {
 
 function getUserPage({session, books}) {
   let content = /*html*/ `
+  <nav>
+  ${session ? `<a href='/'>Recommended Books</a>`: ''}
   ${displayLogout(session)}
+  </nav>
 <br/>
   <form method="POST" > 
   <label for="book">Book name</label>
@@ -85,14 +88,14 @@ function displayLogout(session) {
 
 function Home({ session, sharedBooks }) {
   const content = /*html*/` 
-    <div>
+  <nav>
+    ${session ? `<a href='/user-page/${session?.user_id}'>My Books</a>`: ''}
+    ${displayLogout(session)}
+  </nav>
+  <div>
       <h1>Store and share your favorite books</h1>
-      <nav>
-        
-      </nav>
     </div>
     <div>
-      ${displayLogout(session)}
       <ul>
         ${bookList(sharedBooks)}
       </ul>
