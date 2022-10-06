@@ -15,19 +15,20 @@ function post(req, res) {
   let errors = false
   if (!email) {
     errors = true
-    res.send(Login(error))
+    res.send(Login(errors))
   } else if (!password) {
     errors = true
-    res.send(Login(error))
+    res.send(Login(errors))
+  } else {
+    //check if email does not exist, if not redirect to error
+    if (!user) return error()
+    bcrypt.compare(password, user.hash).then(match => {
+      if (!match) return error()
+      const sid = createSession(user.id)
+      createCookie(res, sid)
+      res.redirect(`/user-page/${user.id}`)
+    })
   }
-  //check if email does not exist, if not redirect to error
-  if (!user) return error()
-  bcrypt.compare(password, user.hash).then(match => {
-    if (!match) return error()
-    const sid = createSession(user.id)
-    createCookie(res, sid)
-    res.redirect(`/user-page/${user.id}`)
-  })
 
   // compare password in form to hash in db
 

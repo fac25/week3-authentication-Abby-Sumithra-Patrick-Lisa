@@ -52,17 +52,17 @@ function Row({ id, name, author, rating }) {
   `;
 }
 
-function getUserPage({ session, books, error }) {
+function getUserPage({ session, books, errors }) {
   let content = /*html*/ `
   ${displayLogout(session)}
 <br/>
   <form method="POST" > 
   <label for="book">Book name</label>
   <input id="book" name="book" >
-  ${error ? `<h3 style="color:red"  aria-describedby="book">Please enter your favorite book</h3>` : ''}
+  ${errors ? `<h3 style="color:red"  aria-describedby="book">Please enter your favorite book</h3>` : ''}
   <label for="author">Author</label>
   <input id="author" name="author" >
-  ${error ? `<h3 style="color:red" aria-describedby="author">Please enter the name of the author</h3>` : ''}
+  ${errors ? `<h3 style="color:red" aria-describedby="author">Please enter the name of the author</h3>` : ''}
   <label for="rating">Rating</label>
   <input id="rating" type="range" name="rating" min="0" max="5" required>
   <label for="sharing">Recommend to others</label>
