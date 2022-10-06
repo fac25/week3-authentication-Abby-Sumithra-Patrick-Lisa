@@ -18,9 +18,61 @@ function Layout({ title, content }) {
     `;
 }
 
+function Table({ caption, data }) {
+  const keys = Object.keys(data[0]);
+  return /*html*/ `
+  <div>
+  <table>
+  <thead>
+  <tr>
+  ${keys.map((key) => `<th>${key}</th>`).join("")}
+  </tr>
+  </thead>
+  <tbody>
+  ${data.map(Row).join("")}
+  </tbody>
+
+  </table>
+  </div>
+  `;
+}
+
+function Row(entry) {
+  return /*html*/ `
+    <tr>
+      ${Object.values(entry)
+        .map((val) => `<td>${val}</td>`)
+        .join("")}
+    </tr>
+  `;
+}
+
+function getUserPage({session, books}) {
+  let content = /*html*/ `
+  ${displayLogout(session)}
+<br/>
+  <form method="POST" > 
+  <label for="book">Book name</label>
+  <input id="book" name="book" required>
+  <label for="author">Author</label>
+  <input id="author" name="author" required>
+  <label for="rating">Rating</label>
+  <input id="rating" type="range" name="rating" min="0" max="5" required>
+  <label for="sharing">Recommend to others</label>
+  <input id="sharing" type="checkbox" name="sharing">
+  <button >Submit</button>
+  </form>
+  `
+  if (books.length) {
+ content += Table({caption:"User books", data:books})
+  }
+  return content
+}
+
+
 function displayLogout(session) {
   return `${session ?
-    `<form method="POST" action="/log-out"><button>Log out</button>` :
+    `<form method="POST" action="/log-out"><button>Log out</button></form>` :
     `<a href="/sign-up">Sign up</a> or <a href="/log-in">Log In</a>`}`
 }
 
@@ -94,4 +146,4 @@ function Login() {
   return Layout({ title: 'Log In', content })
 }
 
-module.exports = { Layout, Home, SignUp, Login }
+module.exports = { Layout, Home, SignUp, Login, getUserPage }
