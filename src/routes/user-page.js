@@ -6,24 +6,33 @@ function get(req, res) {
     const sid = req.signedCookies.sid;
     const session = getSession(sid);
     let user_id;
-    if(session){
+    if (session) {
         // get the user id from the session
         user_id = session.user_id
     }
-    else{
+    else {
         user_id = Number(req.params.user_id);
     }
     const books = listBooks(user_id);
-    const body = getUserPage({session, books});
+    const body = getUserPage({ session, books });
     res.send(body);
 }
 
 function post(req, res) {
-const user_id = 1;
+    const sid = req.signedCookies.sid;
+    const session = getSession(sid);
+    let user_id;
+    if (session) {
+        // get the user id from the session
+        user_id = session.user_id
+    }
+    else {
+        user_id = Number(req.params.user_id);
+    }
     let { book, author, rating, sharing } = req.body;
-    console.log(sharing);
+  
     sharing = (sharing === "on") ? 1 : 0;
-     console.log(book, author, rating, sharing);
+  
     addBooks(book, author, rating, sharing, user_id)
     res.redirect(`/user-page/${user_id}`);
 }
