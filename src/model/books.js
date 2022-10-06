@@ -1,7 +1,7 @@
 const db = require("../database/db.js");
 
 const list_books = db.prepare(/*sql*/ `
-SELECT name, author, rating, sharing FROM books WHERE user_id = ?
+SELECT id, name, author, rating, sharing FROM books WHERE user_id = ?
 `)
 
 function listBooks(user_id) {
@@ -26,5 +26,15 @@ function addBooks(book, author, rating, sharing, user_id){
     return add_books.run({book, author, rating, sharing, user_id});
 }
 
-module.exports = { getSharedBooks, listBooks, addBooks }
+const delete_book = db.prepare(
+    /*sql*/ `
+    DELETE FROM books WHERE id = ?
+    `
+);
+
+function deleteBook(book_id) {
+    delete_book.run(book_id)
+}
+
+module.exports = { getSharedBooks, listBooks, addBooks, deleteBook }
 
