@@ -51,7 +51,7 @@ function getUserPage({session, books}) {
   let content = /*html*/ `
   ${displayLogout(session)}
 <br/>
-  <form method="POST" action="user-page/1"> 
+  <form method="POST" > 
   <label for="book">Book name</label>
   <input id="book" name="book" required>
   <label for="author">Author</label>
@@ -60,7 +60,7 @@ function getUserPage({session, books}) {
   <input id="rating" type="range" name="rating" min="0" max="5" required>
   <label for="sharing">Recommend to others</label>
   <input id="sharing" type="checkbox" name="sharing">
-  <button action="user-page/1">Submit</button>
+  <button >Submit</button>
   </form>
   `
   if (books.length) {
