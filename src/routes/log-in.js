@@ -12,7 +12,14 @@ function post(req, res) {
   const { email, password } = req.body
   const user = getUserByEmail(email)
   const error = () => res.status(401).send('<h1>Wrong info</h1>')
-
+  let errors = false
+  if (!email) {
+    errors = true
+    res.send(Login(error))
+  } else if (!password) {
+    errors = true
+    res.send(Login(error))
+  }
   //check if email does not exist, if not redirect to error
   if (!user) return error()
   bcrypt.compare(password, user.hash).then(match => {
