@@ -11,6 +11,15 @@ function get(req, res) {
 function post(req, res) {
   const { email, password } = req.body;
   const existingUser = getUserByEmail(email)
+  let errors = false
+  if (!email) {
+    errors = true
+    res.send(SignUp(errors))
+  } else if (!password) {
+    errors = true
+    res.send(SignUp(errors))
+  }
+
   if (existingUser) return res.redirect('/log-in')
 
   bcrypt.hash(password, 12).then(hashedPassword => {
