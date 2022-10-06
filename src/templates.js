@@ -1,3 +1,4 @@
+const { sanitize } = require("./helpers")
 
 function Layout({ title, content }) {
   return /*html*/ `
@@ -15,11 +16,11 @@ function Layout({ title, content }) {
           </div>
         </body>
       </html>
-    `;
+    `
 }
 
 function Table({ caption, data }) {
-  const keys = Object.keys(data[0]);
+  const keys = Object.keys(data[0])
   return /*html*/ `
   <div>
   <table>
@@ -34,7 +35,7 @@ function Table({ caption, data }) {
 
   </table>
   </div>
-  `;
+  `
 }
 
 function Row(entry) {
@@ -44,42 +45,41 @@ function Row(entry) {
         .map((val) => `<td>${val}</td>`)
         .join("")}
     </tr>
-  `;
+  `
 }
 
-function getUserPage({session, books}) {
+function getUserPage({ session, books }) {
   let content = /*html*/ `
   ${displayLogout(session)}
 <br/>
   <form method="POST" > 
-  <label for="book">Book name</label>
-  <input id="book" name="book" required>
-  <label for="author">Author</label>
-  <input id="author" name="author" required>
-  <label for="rating">Rating</label>
-  <input id="rating" type="range" name="rating" min="0" max="5" required>
-  <label for="sharing">Recommend to others</label>
-  <input id="sharing" type="checkbox" name="sharing">
-  <button >Submit</button>
+    <label for="book">Book name</label>
+    <input id="book" name="book" required>
+    <label for="author">Author</label>
+    <input id="author" name="author" required>
+    <label for="rating">Rating</label>
+    <input id="rating" type="range" name="rating" min="0" max="5" required>
+    <label for="sharing">Recommend to others</label>
+    <input id="sharing" type="checkbox" name="sharing">
+    <button >Submit</button>
   </form>
   `
   if (books.length) {
- content += Table({caption:"User books", data:books})
+    content += Table({ caption: "User books", data: books })
   }
   return content
 }
 
-
 function displayLogout(session) {
-  return `${session ?
-    `<form method="POST" action="/log-out"><button>Log out</button></form>` :
-    `<a href="/sign-up">Sign up</a> or <a href="/log-in">Log In</a>`}`
+  return `${
+    session
+      ? `<form method="POST" action="/log-out"><button>Log out</button></form>`
+      : `<a href="/sign-up">Sign up</a> or <a href="/log-in">Log In</a>`
+  }`
 }
 
-
-
 function Home({ session, sharedBooks }) {
-  const content = /*html*/` 
+  const content = /*html*/ ` 
     <div>
       <h1>Store and share your favorite books</h1>
       <nav>
@@ -93,21 +93,23 @@ function Home({ session, sharedBooks }) {
       </ul>
     </div>`
 
-  return Layout({ title: 'WEBSITE NAME', content })
+  return Layout({ title: "WEBSITE NAME", content })
 }
 
 function bookList(arr) {
-  return arr.map(book => `
+  return arr
+    .map(
+      (book) => `
   <li>
     <p>${book.name}</p>
     <p>${book.author}</p>
     <p>${book.rating}</p> 
   </li>`
-  ).join("")
+    )
+    .join("")
 }
 
-
-function SignUp() {
+function SignUp(error) {
   const content = `
   <div>
     <h1>Sign Up</h1>
@@ -115,6 +117,11 @@ function SignUp() {
       <div>
         <label for="email">Email</label>
         <input type="email" id="email" name="email" required>
+        ${
+          message
+            ? `<span style="color: red">please enter the email</span>`
+            : ""
+        }
       </div>
       <div>
         <label for="password">Password</label>
@@ -123,7 +130,7 @@ function SignUp() {
       <button>Sign up</button>
     </form>
   </div>`
-  return Layout({ title: 'Sign Up', content })
+  return Layout({ title: "Sign Up", content })
 }
 
 function Login() {
@@ -142,8 +149,8 @@ function Login() {
         <button>Log in</button>
       </form>
     </div>
-  `;
-  return Layout({ title: 'Log In', content })
+  `
+  return Layout({ title: "Log In", content })
 }
 
 module.exports = { Layout, Home, SignUp, Login, getUserPage }

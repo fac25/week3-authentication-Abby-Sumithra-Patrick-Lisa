@@ -16,10 +16,8 @@ const server = express()
 //fix before deployment
 const cookies = cookieParser(process.env.COOKIE_SECRET || "secret")
 
-
 server.use(cookies)
 server.get("/", home.get)
-
 server.get("/sign-up", signup.get)
 server.post("/sign-up", bodyParser, signup.post)
 server.get("/log-in", login.get)
@@ -27,9 +25,5 @@ server.post("/log-in", bodyParser, login.post)
 server.post("/log-out", logout.post)
 server.get("/user-page/:user_id", userpage.get)
 server.post("/user-page/:user_id", bodyParser, userpage.post)
-
-function sanitize(str) {
-  return str.replaceAll("<", "&lt;")
-}
 
 module.exports = server

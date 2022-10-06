@@ -1,7 +1,7 @@
 const { Login } = require("../templates.js");
 const { getUserByEmail } = require("../model/user")
 const { createSession } = require("../model/sessions")
-const { createCookie } = require("../model/helpers")
+const { createCookie } = require("../helpers")
 const bcrypt = require('bcryptjs')
 
 function get(req, res) {
@@ -13,6 +13,8 @@ function post(req, res) {
   const user = getUserByEmail(email)
   const error = () => res.status(401).send('<h1>Wrong info</h1>')
 
+  validate(Login, )
+
   //check if email does not exist, if not redirect to error
   if (!user) return error()
   bcrypt.compare(password, user.hash).then(match => {
@@ -21,6 +23,8 @@ function post(req, res) {
     createCookie(res, sid)
     res.redirect(`/user-page/${user.id}`)
   })
+
+
 
   // compare password in form to hash in db
 
