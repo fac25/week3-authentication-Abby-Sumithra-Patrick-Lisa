@@ -27,8 +27,6 @@ function post(req, res) {
     let errors = false
     if (!book) {
         errors = true
-        console.log(errors)
-        console.log(getUserPage({ session, books, errors }))
         res.send(getUserPage({ session, books, errors }))
     } else if (!author) {
         errors = true
