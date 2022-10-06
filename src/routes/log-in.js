@@ -17,7 +17,7 @@ function post(req, res) {
   if (!user) return error()
   bcrypt.compare(password, user.hash).then(match => {
     if (!match) return error()
-    const sid = createSession()
+    const sid = createSession(user.id)
     createCookie(res, sid)
     res.redirect(`/user-page/${user.id}`)
   })
