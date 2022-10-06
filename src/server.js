@@ -27,6 +27,8 @@ server.post("/log-in", bodyParser, login.post)
 server.post("/log-out", logout.post)
 server.get("/user-page/:user_id", userpage.get)
 server.post("/user-page/:user_id", bodyParser, userpage.post)
+server.post('/delete-book/:id', bodyParser, userpage.deletePost)
+
 
 function sanitize(str) {
   return str.replaceAll("<", "&lt;")
