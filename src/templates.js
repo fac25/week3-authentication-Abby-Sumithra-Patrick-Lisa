@@ -62,10 +62,10 @@ function getUserPage({ session, books, errors }) {
     <div class='user-page'>
       <form method="POST" class='books-form' > 
       <label for="book">Book name</label>
-      <input id="book" name="book">
+      <input id="book" name="book" required>
       ${errors ? `<h3 style="color:red"  aria-describedby="book">Please enter your favorite book</h3>` : ''}
       <label for="author">Author</label>
-      <input id="author" name="author">
+      <input id="author" name="author" required>
       ${errors ? `<h3 style="color:red" aria-describedby="author">Please enter the name of the author</h3>` : ''}
       <label for="rating">Rating</label>
       <input id="rating" type="range" name="rating" min="0" max="5" required>
@@ -120,18 +120,18 @@ function bookList(arr) {
 
 
 function SignUp(error) {
-  const content = `
+  const content =  /*html*/ `
   <div>
     <h1>Sign Up</h1>
     <form method="POST" class='signup-form' action='/sign-up'>
       <div>
         <label for="email">Email</label>
-        <input type="email" id="email" name="email" >
+        <input type="email" id="email" name="email" required >
         ${error ? `<h3 style="color:red" aria-describedby="email">Please enter your email</h3>` : ''}
       </div>
       <div>
         <label for="password">Password</label>
-        <input type="password" id="password" name="password" >
+        <input type="password" id="password" name="password" required>
         ${error ? `<h3 style="color:red" aria-describedby="email">Please enter your password</h3>` : ''}
       </div>
       <button>Sign up</button>
@@ -147,12 +147,12 @@ function Login(error) {
       <form method="POST" class='login-form' action='log-in'>
         <div>
           <label for="email">Email</label>
-          <input type="email" id="email" name="email" >
+          <input type="email" id="email" name="email" required>
           ${error ? `<h3 style="color:red" aria-describedby="email">Please enter your email</h3>` : ''}
         </div>
         <div>
           <label for="password">Password</label>
-          <input type="password" id="password" name="password">
+          <input type="password" id="password" name="password"required>
           ${error ? `<h3 style="color:red" aria-describedby="email">Please enter your password</h3>` : ''}
         </div>
         <button>Log in</button>
