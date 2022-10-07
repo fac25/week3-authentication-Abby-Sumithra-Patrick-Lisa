@@ -9,6 +9,8 @@ Our objective was to create a service which would allow our users to log their r
 
 The main page would be a collection of all the recommended books - from all users.
 
+Find our page hosted on [heroku](book-app-week3.herokuapp.com/)
+
 ## Project Scope
 
 Our features were built with a minimal design and objective in mind: meet the acceptance criterias and basic user stories.
