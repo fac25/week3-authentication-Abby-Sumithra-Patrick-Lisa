@@ -108,3 +108,9 @@ We would gather for 5-10 minutes for a quick huddle to discuss the progress so f
 - VS Code Live Share extension
 - Github Project Board
 
+
+#### Software Methodologies
+
+During our planning stage, we identified there were functions and components that would be reused in the project. As a result, we decided to include modularization and attempted to follow the DRY principle.
+
+Examples of that can be found in [server.js](https://github.com/fac25/week3-authentication-Abby-Sumithra-Patrick-Lisa/blob/main/src/server.js), [helpers.js](https://github.com/fac25/week3-authentication-Abby-Sumithra-Patrick-Lisa/blob/main/src/model/helpers.js) and [user-page.js](https://github.com/fac25/week3-authentication-Abby-Sumithra-Patrick-Lisa/blob/main/src/routes/user-page.js)
