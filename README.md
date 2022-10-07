@@ -55,7 +55,8 @@ A detailed journey of our project as well the planning process can be found in i
 
 ## Database
 
-our database uses three tables following this schema: 
+This project uses Sqlite3 through the use of the common library `better-sqlite3`.
+Our database uses three tables following this schema: 
 
 <details>
 <summary><code>users</code></summary>
