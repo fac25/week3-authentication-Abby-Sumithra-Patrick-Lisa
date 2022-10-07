@@ -15,11 +15,12 @@ nav {
 
 ul {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
     grid-gap: 1rem;
     list-style: none;
     background-color: var(--backgroundColor);
-    width: 50%;
+    width: 80%;
+    padding: 0;
     margin: 0 auto;
 }
 
@@ -57,7 +58,9 @@ button, .login, .signup {
     font-weight: 500;
     letter-spacing: 0.02rem;
     font-size: 1.2rem;
-    color: white;
+    min-width: fit-content;
+    white-space: nowrap;
+    color: black;
 }
 
 .register-btns {
@@ -112,4 +115,8 @@ thead + tr:first-child {
     font-size: 1.2rem;
     font-weight: 700;
     letter-spacing: .02rem;
+}
+
+.delete-btn {
+    background-color: rgb(251, 129, 129);
 }
