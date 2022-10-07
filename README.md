@@ -104,14 +104,19 @@ Our database uses three tables following this schema:
 Throughout our project we used pair-programming method to write the code and rosolve issues. We met in-person, as well as had online meetings to discuss and work together.
 We would gather for 5-10 minutes for a quick huddle to discuss the progress so far, and if we faced any issues.
 
-#### Tools Used
+### Tools Used
 - Discord
 - VS Code Live Share extension
 - Github Project Board
 
 
-#### Software Methodologies
+### Software Methodologies
 
 During our planning stage, we identified there were functions and components that would be reused in the project. As a result, we decided to include modularization and attempted to follow the DRY principle.
 
 Examples of that can be found in [server.js](https://github.com/fac25/week3-authentication-Abby-Sumithra-Patrick-Lisa/blob/main/src/server.js), [helpers.js](https://github.com/fac25/week3-authentication-Abby-Sumithra-Patrick-Lisa/blob/main/src/model/helpers.js) and [user-page.js](https://github.com/fac25/week3-authentication-Abby-Sumithra-Patrick-Lisa/blob/main/src/routes/user-page.js)
+
+
+### Website Snapshot 
+![image](https://user-images.githubusercontent.com/53922624/194543302-3cd23fb3-5a09-46d8-beb2-a1f23b05c5f0.png)
+
