@@ -8,8 +8,8 @@
   },
   "scripts": {
     "start": "node src/index.js",
-    "dev": "DB_FILE=db.sqlite COOKIE_SECRET=abc nodemon src/index.js",
-    "seed": "DB_FILE=db.sqlite node src/database/seed.js"
+    "dev": "nodemon src/index.js",
+    "seed": "node src/database/seed.js"
   },
   "repository": {
     "type": "git",
