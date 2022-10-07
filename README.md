@@ -98,3 +98,13 @@ our database uses three tables following this schema:
 
 
 ![](https://user-images.githubusercontent.com/88027905/194065884-29723bb1-b5be-4ad5-8254-3f407d440d53.png)
+
+## Communication
+Throughout our project we used pair-programming method to write the code and rosolve issues. We met in-person, as well as had online meetings to discuss and work together.
+We would gather for 5-10 minutes for a quick huddle to discuss the progress so far, and if we faced any issues.
+
+#### Tools Used
+- Discord
+- VS Code Live Share extension
+- Github Project Board
+
