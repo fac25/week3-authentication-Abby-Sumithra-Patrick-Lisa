@@ -7,8 +7,7 @@ const logout = require("./routes/log-out.js")
 const userpage = require("./routes/user-page.js")
 
 // Handle hidden variables
-const dotenv = require("dotenv")
-dotenv.config()
+require('dotenv').config()
 
 const bodyParser = express.urlencoded({ extended: false })
 const server = express()
@@ -30,12 +29,6 @@ server.post("/log-out", logout.post)
 server.get("/user-page/:user_id", userpage.get)
 server.post("/user-page/:user_id", bodyParser, userpage.post)
 server.post('/delete-book/:id', bodyParser, userpage.deletePost)
-
-
-function sanitize(str) {
-  return str.replaceAll("<", "&lt;")
-}
-
 
 
 module.exports = server
