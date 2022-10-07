@@ -55,7 +55,7 @@ function Row({ id, name, author, rating }) {
 function getUserPage({ session, books, errors }) {
   let content = /*html*/ `
   <nav>
-  ${session ? `<a href='/'>Recommended Books</a>`: ''}
+  ${session ? `<a href='/'>Recommended Books</a>` : ''}
   ${displayLogout(session)}
   </nav>
     <br/>
@@ -73,11 +73,11 @@ function getUserPage({ session, books, errors }) {
       <input id="sharing" type="checkbox" name="sharing">
       <button >Submit</button>
       </form>
-      ${books.length && Table({caption:"User books", data:books})}
+      ${books.length && Table({ caption: "User books", data: books })}
     </div>
   `
-  
-  return Layout({title: 'My books', content})
+
+  return Layout({ title: 'My books', content })
 
 }
 
@@ -93,7 +93,7 @@ function displayLogout(session) {
 function Home({ session, sharedBooks }) {
   const content = /*html*/` 
   <nav>
-    ${session ? `<a href='/user-page/${session?.user_id}'>My Books</a>`: ''}
+    ${session ? `<a href='/user-page/${session?.user_id}'>My Books</a>` : ''}
     ${displayLogout(session)}
   </nav>
   <div>
@@ -140,7 +140,7 @@ function SignUp(error) {
   return Layout({ title: 'Sign Up', content })
 }
 
-function Login(error) {
+function Login({ inputError, emailError, pwError }) {
   const content = /*html*/ `
     <div>
       <h1>Login to your account</h1>
@@ -148,13 +148,15 @@ function Login(error) {
         <div>
           <label for="email">Email</label>
           <input type="email" id="email" name="email" required>
-          ${error ? `<h3 style="color:red" aria-describedby="email">Please enter your email</h3>` : ''}
+          ${inputError ? `<h3 style="color:red" aria-describedby="email">Please enter your email</h3>` : ''}
         </div>
         <div>
           <label for="password">Password</label>
           <input type="password" id="password" name="password"required>
-          ${error ? `<h3 style="color:red" aria-describedby="email">Please enter your password</h3>` : ''}
+          ${inputError ? `<h3 style="color:red" aria-describedby="password">Please enter your password</h3>` : ''}
         </div>
+        ${emailError ? `<h3 style="color:red" aria-describedby="email">The user doesn't exist</h3>` : ''}
+        ${pwError ? `<h3 style="color:red" aria-describedby="password">The password is not correct</h3>` : ''}
         <button>Log in</button>
       </form>
     </div>
