@@ -82,7 +82,7 @@ function getUserPage({ session, books, errors }) {
       <input id="sharing" type="checkbox" name="sharing">
       <button >Submit</button>
       </form>
-      ${books.length && Table({ caption: "User books", data: books })}
+      ${books.length ?  Table({ caption: "User books", data: books }) : ""}
     </div>
   `
   return Layout({ title: "My books", content })
