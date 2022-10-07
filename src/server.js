@@ -10,7 +10,11 @@ const userpage = require("./routes/user-page.js")
 require('dotenv').config()
 
 const bodyParser = express.urlencoded({ extended: false })
+
+
 const server = express()
+
+server.use(bodyParser);
 
 //fix before deployment
 const cookies = cookieParser(process.env.COOKIE_SECRET || "secret")
@@ -22,13 +26,13 @@ server.use(staticHandler);
 server.get("/", home.get)
 
 server.get("/sign-up", signup.get)
-server.post("/sign-up", bodyParser, signup.post)
+server.post("/sign-up", signup.post)
 server.get("/log-in", login.get)
-server.post("/log-in", bodyParser, login.post)
+server.post("/log-in", login.post)
 server.post("/log-out", logout.post)
 server.get("/user-page/:user_id", userpage.get)
-server.post("/user-page/:user_id", bodyParser, userpage.post)
-server.post('/delete-book/:id', bodyParser, userpage.deletePost)
+server.post("/user-page/:user_id", userpage.post)
+server.post('/delete-book/:id', userpage.deletePost)
 
 
 module.exports = server

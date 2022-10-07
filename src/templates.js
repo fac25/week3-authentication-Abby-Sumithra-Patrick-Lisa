@@ -6,6 +6,7 @@ function Layout({ title, content }) {
       <html lang="en">
         <head>
           <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
           <title>${title}</title>
           <link rel="stylesheet" href="../style.css">
         </head>
@@ -81,7 +82,7 @@ function getUserPage({ session, books, errors }) {
       <input id="sharing" type="checkbox" name="sharing">
       <button >Submit</button>
       </form>
-      ${books.length && Table({ caption: "User books", data: books })}
+      ${books.length ?  Table({ caption: "User books", data: books }) : ""}
     </div>
   `
   return Layout({ title: "My books", content })
